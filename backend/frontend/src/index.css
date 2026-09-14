@@ -1,0 +1,56 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@400;500;600;700&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: #f5f0e8;
+}
+
+.bg-primary-green {
+  background-color: #1a472a;
+}
+
+.text-primary-green {
+  color: #1a472a;
+}
+
+.border-primary-green {
+  border-color: #1a472a;
+}
+
+.hover\:bg-primary-green:hover {
+  background-color: #1a472a;
+}
+
+.bg-accent-orange {
+  background-color: #e8a87c;
+}
+
+.text-accent-orange {
+  color: #e8a87c;
+}
+
+.font-serif {
+  font-family: 'Playfair Display', serif;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #1a472a;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #2d5a3d;
+}
