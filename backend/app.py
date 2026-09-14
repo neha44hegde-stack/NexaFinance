@@ -6,7 +6,11 @@ from flask_cors import CORS
 from datetime import date, timedelta
 
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///finance.db'
+import os
+db_url = os.environ.get('DATABASE_URL', 'sqlite:///finance.db')
+if db_url.startswith('postgres://'):
+    db_url = db_url.replace('postgres://', 'postgresql://', 1)
+app.config['SQLALCHEMY_DATABASE_URI'] = db_url
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['JWT_SECRET_KEY'] = 'super-secret-key'
 app.config['JWT_ACCESS_TOKEN_EXPIRES'] = timedelta(days=30)
@@ -278,3 +282,4 @@ with app.app_context():
 
 if __name__ == '__main__':
     app.run(debug=True)
+
