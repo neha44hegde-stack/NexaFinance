@@ -275,13 +275,14 @@ def edit_asset(id):
 # --- Frontend Route ---
 @app.route('/')
 def home():
-    return send_from_directory(r'C:\Users\Admin\Sensible-Finance-Manager\expense-tracker', 'index.html')
+    return send_from_directory(os.path.dirname(os.path.abspath(__file__)), 'index.html')
 
 with app.app_context():
     db.create_all()
 
 if __name__ == '__main__':
     app.run(debug=True)
+
 
 
 
