@@ -16,7 +16,7 @@ app.config['JWT_SECRET_KEY'] = 'super-secret-key'
 app.config['JWT_ACCESS_TOKEN_EXPIRES'] = timedelta(days=30)
 db = SQLAlchemy(app)
 jwt = JWTManager(app)
-CORS(app)
+CORS(app, resources={r'/api/*': {'origins': ['https://nexafinance-1.onrender.com', 'http://localhost:5000', 'http://127.0.0.1:5000']}})
 
 # --- Models ---
 class User(db.Model):
@@ -282,4 +282,5 @@ with app.app_context():
 
 if __name__ == '__main__':
     app.run(debug=True)
+
 
